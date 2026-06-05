@@ -33,7 +33,7 @@ html, body, [class*="css"] {
 [data-testid="stAppViewContainer"] { background-color: #FFFFFF !important; }
 [data-testid="stHeader"] { background-color: #FFFFFF !important; box-shadow: none !important; }
 .block-container {
-    padding-top: 0 !important;
+    padding-top: 4rem !important;
     padding-bottom: 1rem;
     background-color: #FFFFFF;
     max-width: 100% !important;
@@ -44,6 +44,7 @@ html, body, [class*="css"] {
     background: linear-gradient(135deg, #001f4d 0%, #003478 60%, #0050b3 100%);
     padding: 14px 32px;
     margin-bottom: 20px;
+    margin-top: 18px;
     margin-left: -1rem;
     margin-right: -1rem;
     display: flex;
@@ -230,7 +231,7 @@ def render_header():
             <div style="width:1px; height:58px; background:rgba(255,255,255,0.3);"></div>
             {flow_img}
             <div style="width:1px; height:58px; background:rgba(255,255,255,0.2);"></div>
-            <div style="color:rgba(255,255,255,0.65); font-size:13px;
+            <div style="color:rgba(255,255,255,0.65); font-size:18px;
                         letter-spacing:0.20em; text-transform:uppercase; font-weight:500;">
                 Ford Logistics Operations Window
             </div>
@@ -243,8 +244,8 @@ def render_header():
             <div style="color:rgba(255,255,255,0.75); font-size:15px; margin-top:4px;">
                 {now.strftime('%d/%m/%Y')}
             </div>
-            <div style="color:#7ec8f7; font-size:16px; font-weight:700; margin-top:6px;">
-                🏭 FORD PACHECO
+            <div style="color:#7ec8f7; font-size:18px; font-weight:700; margin-top:6px;">
+                PLANTA MONTAJE
             </div>
         </div>
     </div>
