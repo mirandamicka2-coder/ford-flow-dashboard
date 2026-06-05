@@ -73,12 +73,21 @@ html, body, [class*="css"] {
 
 /* BOTONES */
 .stButton > button {
-    border-radius: 10px;
+    width: 100% !important;
+    height: 72px !important;
+
+    font-size: 24px !important;
     font-weight: 900 !important;
-    font-size: 18px !important;
-    padding: 18px 16px !important;
-    height: 60px;
-    letter-spacing: 0.05em;
+
+    border-radius: 12px !important;
+
+    letter-spacing: 0.08em !important;
+
+    text-transform: uppercase !important;
+
+    border: none !important;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18) !important;
 }
 
 /* MÉTRICAS */
