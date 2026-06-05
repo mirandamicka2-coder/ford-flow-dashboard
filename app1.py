@@ -240,7 +240,7 @@ def render_header():
         <div style="text-align:right;">
             <div style="color:white; font-size:42px; font-weight:800;
                         font-family:'IBM Plex Mono',monospace; line-height:1;">
-                {now.strftime('%H:%M')}
+                9:00 AM
             </div>
             <div style="color:rgba(255,255,255,0.75); font-size:15px; margin-top:4px;">
                 {now.strftime('%d/%m/%Y')}
