@@ -4,6 +4,7 @@ from datetime import datetime
 import datetime as dt
 import os
 import base64
+from streamlit_autorefresh import st_autorefresh
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -576,6 +577,7 @@ def render_tablero_general():
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
+    st_autorefresh(interval=1000, key="clock_refresh")
     init_data()
     render_header()
 
