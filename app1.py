@@ -96,6 +96,29 @@ div[data-testid="stMetricLabel"] { font-size: 15px !important; font-weight: 600 
 
 /* TEXTOS generales */
 p, div, span, label { color: #111827; }
+div.stButton > button:first-child {
+    background-color: #003478 !important;
+
+    color: white !important;
+
+    font-size: 28px !important;
+
+    font-weight: 900 !important;
+
+    height: 78px !important;
+
+    width: 100% !important;
+
+    border-radius: 14px !important;
+
+    border: none !important;
+
+    letter-spacing: 0.08em !important;
+
+    text-transform: uppercase !important;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25) !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
