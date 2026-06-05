@@ -73,10 +73,12 @@ html, body, [class*="css"] {
 
 /* BOTONES */
 .stButton > button {
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 900 !important;
+    font-size: 18px !important;
+    padding: 18px 16px !important;
+    height: 60px;
+    letter-spacing: 0.05em;
 }
 
 /* MÉTRICAS */
@@ -231,7 +233,7 @@ def render_header():
             <div style="color:rgba(255,255,255,0.75); font-size:15px; margin-top:4px;">
                 {now.strftime('%d/%m/%Y')}
             </div>
-            <div style="color:#7ec8f7; font-size:14px; font-weight:700; margin-top:6px;">
+            <div style="color:#7ec8f7; font-size:16px; font-weight:700; margin-top:6px;">
                 🏭 FORD PACHECO
             </div>
         </div>
@@ -247,27 +249,30 @@ def render_truck_card(c, show_buttons=True):
     ipd_color  = get_ipd_color(ipd)
     crit_color = get_criticidad_color(criticidad)
 
-    # Color de borde izquierdo según criticidad
+    # Fondo completo según criticidad
     if descargado:
-        border_color = "#94a3b8"
-        bg_color     = "#f8fafc"
+        border_color = "#64748b"
+        bg_color     = "#e2e8f0"
+    
     elif criticidad == "ALTA":
-        border_color = "#ef4444"
-        bg_color     = "#fff8f8"
+        border_color = "#dc2626"
+        bg_color     = "#fee2e2"
+        
     elif criticidad == "MEDIA":
-        border_color = "#f59e0b"
-        bg_color     = "#fffdf0"
+        border_color = "#d97706"
+        bg_color     = "#fef3c7"
+        
     else:
-        border_color = "#22c55e"
-        bg_color     = "#f9fffc"
+        border_color = "#16a34a"
+        bg_color     = "#dcfce7"
 
     # Contenedor con borde izquierdo de color
     st.markdown(f"""
     <div style="
         background:{bg_color};
-        border-left: 7px solid {border_color};
+        border: 3px solid {border_color};
         border-radius: 12px;
-        padding: 18px 22px 10px 22px;
+        padding: 24px 28px 18px 28px;
         margin-bottom: 4px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     ">
@@ -315,7 +320,7 @@ def render_truck_card(c, show_buttons=True):
                          background:{tipo_bg}; color:{tipo_color};">
                 {tipo_txt}
             </span>
-            <div style="font-size:14px; color:#374151; margin-top:5px; font-weight:500;">
+            <div style="font-size:16px; color:#374151; margin-top:5px; font-weight:500;">
                 {c.get('descripcion','—')}
             </div>
         </div>
@@ -345,21 +350,21 @@ def render_truck_card(c, show_buttons=True):
         st.markdown("<p style='font-size:12px;color:#6b7280;font-weight:600;"
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Proveedor</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{c['proveedor']}</p>", unsafe_allow_html=True)
 
     with g2:
         st.markdown("<p style='font-size:12px;color:#6b7280;font-weight:600;"
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Material</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{c['material']}</p>", unsafe_allow_html=True)
 
     with g3:
         st.markdown("<p style='font-size:12px;color:#6b7280;font-weight:600;"
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Ventana</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{c['ventana']}</p>", unsafe_allow_html=True)
 
     with g4:
@@ -367,7 +372,7 @@ def render_truck_card(c, show_buttons=True):
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Llegada</p>", unsafe_allow_html=True)
         llegada = c.get('llegada') or '—'
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{llegada}</p>", unsafe_allow_html=True)
 
     g5, g6, g7, g8 = st.columns(4)
@@ -376,7 +381,7 @@ def render_truck_card(c, show_buttons=True):
         st.markdown("<p style='font-size:12px;color:#6b7280;font-weight:600;"
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Remito</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='font-size:14px;font-weight:600;color:#111827;"
+        st.markdown(f"<p style='font-size:18px;font-weight:600;color:#111827;"
                     f"font-family:IBM Plex Mono,monospace;margin-top:0;'>"
                     f"{c.get('remito','—')}</p>", unsafe_allow_html=True)
 
@@ -385,21 +390,21 @@ def render_truck_card(c, show_buttons=True):
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Dársena</p>", unsafe_allow_html=True)
         darsena = f"Dársena {c['darsena']}" if c.get('darsena') else 'No asignada'
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{darsena}</p>", unsafe_allow_html=True)
 
     with g7:
         st.markdown("<p style='font-size:12px;color:#6b7280;font-weight:600;"
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Stock en línea</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{c.get('stock_actual','—')} u.</p>", unsafe_allow_html=True)
 
     with g8:
         st.markdown("<p style='font-size:12px;color:#6b7280;font-weight:600;"
                     "text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;'>"
                     "Punto de pedido</p>", unsafe_allow_html=True)
-        st.markdown(f"<p style='font-size:16px;font-weight:700;color:#111827;margin-top:0;'>"
+        st.markdown(f"<p style='font-size:18px;font-weight:700;color:#111827;margin-top:0;'>"
                     f"{c.get('punto_pedido','—')} u.</p>", unsafe_allow_html=True)
 
     # ── Alerta ───────────────────────────────────────────────────────────────
@@ -415,10 +420,14 @@ def render_truck_card(c, show_buttons=True):
 
     # ── Botón único: Descargado ───────────────────────────────────────────────
     if show_buttons and not descargado:
-        col_btn, col_space = st.columns([1, 3])
+        col_btn = st.container()
         with col_btn:
-            if st.button("✅  DESCARGADO", key=f"desc_{c['id']}",
-                         type="primary", use_container_width=True):
+            if st.button(
+                "✅  DESCARGADO",
+                key=f"desc_{c['id']}",
+                type="primary",
+                use_container_width=True
+            ):
                 hora_ahora = datetime.now().strftime("%H:%M")
                 for cam in st.session_state.camiones:
                     if cam["id"] == c["id"]:
@@ -446,7 +455,7 @@ def render_recepcion(recepcion):
                 display:flex; align-items:center; gap:12px;">
         <span style="font-size:22px;">{ICONOS[recepcion]}</span>
         <span style="font-size:20px; font-weight:800;">Recepción {recepcion}</span>
-        <span style="font-size:14px; opacity:0.8; margin-left:auto;">
+        <span style="font-size:16px; opacity:0.8; margin-left:auto;">
             {DARSENAS[recepcion]} dársenas
         </span>
     </div>
@@ -501,7 +510,7 @@ def render_tablero_general():
             st.markdown(f"""
             <div style="background:{header_col}; color:white; padding:12px 16px;
                         border-radius:10px 10px 0 0; text-align:center;
-                        font-weight:800; font-size:16px;">
+                        font-weight:800; font-size:18px;">
                 {ICONOS[rec]} {rec}
                 <br><span style="font-size:13px; opacity:0.8; font-weight:500;">
                     {len(activos_rec)} activos · {DARSENAS[rec]} dársenas
@@ -513,7 +522,7 @@ def render_tablero_general():
                 st.markdown(
                     "<div style='background:white; border:1px solid #e2e8f0; "
                     "border-top:none; border-radius:0 0 10px 10px; padding:22px; "
-                    "text-align:center; color:#6b7280; font-size:14px;'>"
+                    "text-align:center; color:#6b7280; font-size:16px;'>"
                     "Sin pendientes</div>",
                     unsafe_allow_html=True
                 )
